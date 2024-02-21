@@ -1,6 +1,7 @@
 import './signup.css'
 import { useState,useRef}  from 'react'
 import { db } from './firebaseConfig';
+import { Link } from 'react-router-dom';
 import { collection, addDoc } from "firebase/firestore"; 
 function Signup_page(){
 
@@ -107,7 +108,7 @@ function Signup_page(){
         <div className="container w-full max-w-90">
             <h3 className='text-sky-400/100 place-items-center font-bold text-2xl '>SIGNUP-Page</h3>
             <div >
-                <label htmlFor='1' ><p className='text-blue-700 place-items-center  text-2xl mt-5'>Name:</p></label>
+                <label htmlFor='1' ><p className='text-sky-400/100 place-items-center  text-2xl mt-5'>Name:</p></label>
                 <input id='1' className={nameValid ? 'rounded border-2 border-gray-500': ' border-2 border-rose-500 rounded'} type='text' onChange={NameValiDate} ref={uName}></input>
 
                 <label htmlFor='2' ><p className='text-sky-400/100 place-items-center  text-2xl mt-5'>Email-id:</p></label>
@@ -117,8 +118,13 @@ function Signup_page(){
                 <p className='text-sky-400/100 place-items-center  text-2xl mt-5'>Password:</p>
                 <input className={passwordValid ? 'rounded border-2 border-gray-500': 'rounded border-2 border-rose-500'} type='password' onChange={PasswordValidate} ref={uPassWord}></input>
                 <div>
+                
                 <button className='bg-blue-700 hover:bg-blue-500 text-white  font-bold py-2 px-4 border border-blue-700 rounded mt-5' onClick={Send_data}>SUBMIT</button>
+                
                 <p className=' text-red-500 font-bold text-2xl'>{showFillAll ? 'please fill all' : ''}</p>
+                <div>
+                <Link className=' bg-blue-400 rounded bg-cover font-bold mt-3' to='/test-web/login'>Login if you have an account</Link>
+                </div>
                 </div>
                 
             </div>

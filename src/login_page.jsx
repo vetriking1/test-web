@@ -1,7 +1,7 @@
 import { useState,useRef}  from 'react'
 import { collection, getDocs } from "firebase/firestore";
 import { db } from './firebaseConfig';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 import './signup.css'
 function Login_page(){
 
@@ -81,6 +81,10 @@ querySnapshot.forEach((doc) => {
                 <input type='password' className={passwordValid ? 'rounded border-2 border-gray-500': 'border-2 border-rose-500 rounded'}  ref={passwordRef} onChange={PasswordValidate}></input>
                 <div>
                     <button className='bg-blue-700 hover:bg-blue-500 text-white  font-bold py-2 px-4 border border-blue-700 rounded mt-5'  onClick={Check_data}>login</button>
+                    
+                </div>
+                <div>
+                <Link className=' bg-blue-400  rounded bg-cover font-bold mt-3' to='/test-web/'>SignUP if you do not have account</Link>
                 </div>
     
             </div>
