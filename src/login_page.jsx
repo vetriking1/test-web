@@ -62,10 +62,11 @@ querySnapshot.forEach((doc) => {
             passwordRef.current.value = ''
             emailRef.current.value = ''
             console.log("successfully logged in! ")
+            // not working don't know why
             navigate('/test-web/home');
             
         }
-        else   alert("try again")
+        else   alert("try again!")
 
 
     }
@@ -75,7 +76,7 @@ querySnapshot.forEach((doc) => {
             <h3 className='text-sky-400/100 place-items-center font-bold text-2xl '>Login-Page</h3>
             <div>
 
-                <p className='text-sky-400/100 place-items-center  text-2xl mt-5'>Email-id:</p>
+                <p className='text-sky-400/100 place-items-center  text-2xl mt-5'>Email-Id:</p>
                 <input type='text' className={emailValid ? 'rounded border-2 border-gray-500': 'border-2 border-rose-500 rounded'}  ref={emailRef} onChange={EmailValiDate}></input>
                 <p className='text-sky-400/100 place-items-center  text-2xl mt-5'>Password:</p>
                 <input type='password' className={passwordValid ? 'rounded border-2 border-gray-500': 'border-2 border-rose-500 rounded'}  ref={passwordRef} onChange={PasswordValidate}></input>
@@ -84,7 +85,7 @@ querySnapshot.forEach((doc) => {
                     
                 </div>
                 <div>
-                <Link className=' bg-blue-400  rounded bg-cover font-bold mt-3' to='/test-web/'>SignUP if you do not have account</Link>
+                <Link className=' bg-blue-500  rounded bg-cover font-bold mt-3' to='/test-web/'>SignUP if you do not have account</Link>
                 </div>
     
             </div>
