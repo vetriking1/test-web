@@ -62,7 +62,7 @@ querySnapshot.forEach((doc) => {
             passwordRef.current.value = ''
             emailRef.current.value = ''
             console.log("successfully logged in! ")
-            navigate('/home');
+            navigate('/test-web/home');
             
         }
         else   alert("try again")
