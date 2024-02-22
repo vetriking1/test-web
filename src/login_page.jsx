@@ -18,6 +18,8 @@ function Login_page(){
 
     const [idMatched, setIdMatched] = useState(false);
 
+    const [userName,setUserName] = useState('')
+
 
 
     function EmailValiDate(){
@@ -50,10 +52,11 @@ querySnapshot.forEach((doc) => {
 
             if ( userEmail.localeCompare(doc.data().email)&& userPassword.localeCompare(doc.data().password)){
                 setIdMatched(true)
+                setUserName(doc.data().name)
 
             }
 });
-// Vetriselvan18 vking1060@gamil.com
+
 
         
         }
@@ -63,7 +66,7 @@ querySnapshot.forEach((doc) => {
             emailRef.current.value = ''
             console.log("successfully logged in! ")
             // not working don't know why
-            navigate('/test-web/home');
+            navigate('/test-web/home',{ state: { userName } });
             
         }
         else   alert("try again!")
