@@ -50,9 +50,10 @@ function Login_page(){
             const querySnapshot = await getDocs(collection(db, "data"));
 querySnapshot.forEach((doc) => {
 
-            if ( userEmail.localeCompare(doc.data().email)&& userPassword.localeCompare(doc.data().password)){
+            if ( userEmail== doc.data().email && userPassword== doc.data().password){
                 setIdMatched(true)
                 setUserName(doc.data().name)
+                console.log(doc.data().name)
 
             }
 });
