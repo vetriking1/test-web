@@ -56,9 +56,10 @@ function Signup_page(){
          'number':userNumber,
          'password':userPassword})
         console.log("Data sent to Firestore successfully!", docRef.id);
+        alert('signed up successfully!')
         }
         catch{
-            console.error('naku')
+            console.error('error happened')
         } 
 
             uName.current.value = ""
@@ -71,7 +72,7 @@ function Signup_page(){
     }
 
     function NameValiDate(){
-        if (uName.current.value.length >=15 || uName.current.value.length <3){
+        if (uName.current.value.length >=20 || uName.current.value.length <3){
             setNameValid(false)
         }  
         else setNameValid(true)
@@ -97,7 +98,7 @@ function Signup_page(){
         setUserNumber(uNumber.current.value)
     }
     function PasswordValidate(){
-        if (uPassWord.current.value.length < 5 || uPassWord.current.value.length >= 15)
+        if (uPassWord.current.value.length < 5 || uPassWord.current.value.length >= 20)
         setPasswordValid(false)
         else setPasswordValid(true)
         
@@ -110,18 +111,21 @@ function Signup_page(){
             <div >
                 <label htmlFor='1' ><p className='text-sky-400/100 place-items-center  text-2xl mt-5'>Name:</p></label>
                 <input id='1' className={nameValid ? 'rounded border-2 border-gray-500': ' border-2 border-rose-500 rounded'} type='text' onChange={NameValiDate} ref={uName}></input>
-
+                <p className=' text-red-600'>{  nameValid?'':'name between 3 to 20 letters'}</p>
                 <label htmlFor='2' ><p className='text-sky-400/100 place-items-center  text-2xl mt-5'>Email-id:</p></label>
                 <input id='2' className={emailValid ? 'rounded border-2 border-gray-500': 'rounded border-2 border-rose-500'} type='email' onChange={EmailValiDate} ref={uEmail}></input>
+                <p className=' text-red-600'>{  emailValid?'':'not a valid email'}</p>
                 <p className='text-sky-400/100 place-items-center  text-2xl mt-5'>Phone-no:</p>
                 <input className={numberValid ? 'rounded border-2 border-gray-500': 'rounded border-2 border-rose-500'} type='number' onChange={NumberValidate} ref={uNumber}></input>
+                <p className=' text-red-600'>{  numberValid?'':'not a valid phone number'}</p>
                 <p className='text-sky-400/100 place-items-center  text-2xl mt-5'>Password:</p>
                 <input className={passwordValid ? 'rounded border-2 border-gray-500': 'rounded border-2 border-rose-500'} type='password' onChange={PasswordValidate} ref={uPassWord}></input>
+                <p className=' text-red-600'>{  passwordValid?'':'password between 5 to 20 letters'}</p>
                 <div>
                 
                 <button className='bg-blue-700 hover:bg-blue-500 text-white  font-bold py-2 px-4 border border-blue-700 rounded mt-5' onClick={Send_data}>SUBMIT</button>
                 
-                <p className=' text-red-500 font-bold text-2xl'>{showFillAll ? 'please fill all' : ''}</p>
+                <p className=' text-red-700 font-bold text-lg'>{showFillAll ? 'please fill all correctly' : ''}</p>
                 <div>
                 <Link className=' bg-blue-400 rounded bg-cover font-bold mt-3' to='/test-web/login'>Login if you have an account</Link>
                 </div>

@@ -78,8 +78,10 @@ querySnapshot.forEach((doc) => {
 
                 <p className='text-sky-400/100 place-items-center  text-2xl mt-5'>Email-Id:</p>
                 <input type='text' className={emailValid ? 'rounded border-2 border-gray-500': 'border-2 border-rose-500 rounded'}  ref={emailRef} onChange={EmailValiDate}></input>
+                <p className=' text-red-600'>{  emailValid?'':'not a valid email'}</p>
                 <p className='text-sky-400/100 place-items-center  text-2xl mt-5'>Password:</p>
                 <input type='password' className={passwordValid ? 'rounded border-2 border-gray-500': 'border-2 border-rose-500 rounded'}  ref={passwordRef} onChange={PasswordValidate}></input>
+                <p className=' text-red-600'>{  passwordValid?'':'password between 5 to 20 letters'}</p>
                 <div>
                     <button className='bg-blue-700 hover:bg-blue-500 text-white  font-bold py-2 px-4 border border-blue-700 rounded mt-5'  onClick={Check_data}>login</button>
                     
